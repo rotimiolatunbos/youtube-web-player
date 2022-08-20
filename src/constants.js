@@ -1,4 +1,4 @@
-const API_KEY = process.env.REACT_YT_APP_API_KEY;
+const API_KEY = process.env.REACT_APP_YT_API_KEY;
 
 const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 
