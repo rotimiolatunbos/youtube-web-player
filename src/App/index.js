@@ -45,11 +45,13 @@ export default function App() {
   };
 
   const handleSearch = (text) => {
-    setState((prevState) => ({
-      ...prevState,
-      searchTerm: text,
-      loading: true,
-    }));
+    if (text.trim()) {
+      setState((prevState) => ({
+        ...prevState,
+        searchTerm: text,
+        loading: true,
+      }));
+    }
   };
 
   const getResults = async (myPageToken) => {
