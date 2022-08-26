@@ -96,7 +96,7 @@ export default function App() {
     if (searchTerm) {
       getResults();
     }
-  }, [searchTerm]);
+  }, [loading]);
 
   return (
     <CssVarsProvider>

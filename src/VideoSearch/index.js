@@ -18,7 +18,7 @@ const VideoSearch = ({ onSearch }) => {
         sx={styles.input}
         onChange={(e) => setText(e.target.value)}
       />
-      <Button onClick={() => onSearch(text)}>
+      <Button onClick={() => onSearch(text)} disabled={!text.trim()}>
         <SearchIcon />
       </Button>
     </Sheet>
