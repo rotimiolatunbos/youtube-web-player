@@ -7,9 +7,9 @@ import styles from './style';
 
 const Loading = () => {
   return (
-    <Sheet sx={styles.container}>
+    // <Sheet sx={styles.container}>
       <ClipLoader />
-    </Sheet>
+    {/* </Sheet> */}
   );
 };
 

@@ -45,13 +45,11 @@ export default function App() {
   };
 
   const handleSearch = (text) => {
-    if (text.trim()) {
-      setState((prevState) => ({
-        ...prevState,
-        searchTerm: text,
-        loading: true,
-      }));
-    }
+    setState((prevState) => ({
+      ...prevState,
+      searchTerm: text,
+      loading: true,
+    }));
   };
 
   const getResults = async (myPageToken) => {
@@ -108,15 +106,20 @@ export default function App() {
           <Sheet sx={styles.searchBoxContainer}>
             <VideoSearch onSearch={handleSearch} />
             <Typography level="body2">
-              Showng results for "
+              {loading ? 'Loading' : 'Showing'} results for "
               {searchTerm ? searchTerm : DEFAULT_SEARCH_TERM}"
             </Typography>
           </Sheet>
-
-          {loading && <Loading />}
-
-          {!loading && (
-            <VideoList list={list} onVideoClick={handleVideoClick} />
+          {list.length > 0 ? (
+            <VideoList
+              list={list}
+              onVideoClick={handleVideoClick}
+              selectedItem={selectedItem}
+            />
+          ) : (
+            <Typography sx={{ textAlign: 'center' }}>
+              Got no results on this search
+            </Typography>
           )}
         </Sheet>
       </Sheet>

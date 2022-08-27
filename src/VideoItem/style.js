@@ -1,6 +1,12 @@
-const listItem = { px: '12px', width: 400 };
+const listItem = {
+  px: '12px',
+  width: 400,
+};
 
-const imgContainer = { mr: 1 };
+const imgContainer = {
+  mr: 1,
+  position: 'relative',
+};
 
 const videoTitle = {
   overflow: 'hidden',
@@ -11,4 +17,9 @@ const videoTitle = {
 
 const listItemContent = { pl: 1 };
 
-export default { listItem, imgContainer, videoTitle, listItemContent };
+export default {
+  listItem,
+  imgContainer,
+  videoTitle,
+  listItemContent,
+};

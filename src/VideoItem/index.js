@@ -1,4 +1,5 @@
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 import Sheet from '@mui/joy/Sheet';
 import Typography from '@mui/joy/Typography';
@@ -8,16 +9,31 @@ import ListItemButton from '@mui/joy/ListItemButton';
 
 import styles from './style';
 
-const VideoItem = ({ item, onVideoClick }) => {
+const VideoImageSkeletonWrapper = ({ children }) => {
+  return <Sheet>{children}</Sheet>;
+};
+
+const VideoItem = ({ item, onVideoClick, selected }) => {
   return (
-    <ListItem sx={styles.listItem}>
+    <ListItem
+      sx={
+        selected ? { ...styles.listItem, bgcolor: '#fffbc8' } : styles.listItem
+      }
+    >
       <ListItemButton onClick={() => onVideoClick(item)}>
         <Sheet sx={styles.imgContainer}>
-          <img
-            src={item.thumbnails.default.url}
+          <Skeleton
+            wrapper={VideoImageSkeletonWrapper}
             height={item.thumbnails.default.height}
-            width={item.thumbnails.default.url}
+            width={item.thumbnails.default.width}
           />
+          <Sheet sx={{ zIndex: 999, position: 'absolute', top: 0 }}>
+            <img
+              src={item.thumbnails.default.url}
+              height={item.thumbnails.default.height}
+              width={item.thumbnails.default.url}
+            />
+          </Sheet>
         </Sheet>
         <ListItemContent style={styles.listItemContent}>
           <Typography level="body2" sx={styles.videoTitle}>
